@@ -1,0 +1,21 @@
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: repeat(6, [col1-start] 1fr [col2-start] 3fr);
+  }
+  .box {
+    border: solid 1px red;
+    background: bisque;
+  }
+  .item1 {
+    grid-column: col1-start / col2-start 2;
+  }
+  .item2 {
+    grid-row: 2;
+    grid-column: col1-start 2 / span 2 col1-start;
+  }
+</style>
+<div class="container">
+  <div class="box item1">item1</div>
+  <div class="box item2">item2</div>
+</div>

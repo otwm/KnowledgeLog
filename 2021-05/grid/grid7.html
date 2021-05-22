@@ -1,0 +1,32 @@
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+  }
+  .box {
+    border: solid 1px red;
+    background: bisque;
+  }
+  .item1 {
+    grid-column: col-start / col-start 5;
+  }
+  .item2 {
+    grid-column: col-start 7 /  span 3;
+  }
+
+  .container2 {
+    display: grid;
+    grid-template-columns: repeat(4, [col1-start] 1fr [col2-start] 3fr);
+  }
+</style>
+<div class="container">
+  <div class="box item1">item1</div>
+  <div class="box item2">item2</div>
+</div>
+
+<div class="container2">
+  <div class="box item21">item1</div>
+  <div class="box item22">item2</div>
+</div>
+
+

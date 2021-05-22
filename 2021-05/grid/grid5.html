@@ -1,0 +1,42 @@
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: [main-start] 1fr [content-start my-start] 1fr [content-end my-end] 1fr [main-end];
+    grid-template-rows: [main-start] 100px [content-start] 100px [content-end] 100px [main-end];
+    gap: 1em;
+  }
+  .box {
+    border: solid 1px red;
+    background: bisque;
+  }
+  .box1 {
+    grid-column-start: main-start;
+    grid-row-start: main-start;
+    grid-row-end: main-end;
+  }
+  .box2 {
+    grid-column-start: content-end;
+    grid-row-start: main-start;
+    grid-row-end: content-end;
+  }
+  .box3 {
+    grid-column-start: content-start;
+    grid-row-start: main-start;
+  }
+  .box4 {
+    grid-column-start: content-start;
+    grid-column-end: main-end;
+    grid-row-start: content-end;
+  }
+  .thing {
+    grid-area: content;
+  }
+</style>
+<div class="container">
+  <div class="box box1">One</div>
+  <div class="box box2">Two</div>
+  <div class="box box3">Three</div>
+  <div class="box box4">Four</div>
+  <div class="box thing">Thing</div>
+</div>
+
