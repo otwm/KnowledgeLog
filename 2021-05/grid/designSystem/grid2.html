@@ -1,0 +1,157 @@
+<style>
+  :root {
+    --inner-grid-columns: 8;
+  }
+
+  /*
+   * to start with there is no 'grid' just a single column
+   */
+
+  .g-container {
+    padding: 0 .75em;
+  }
+
+  /*
+   * when we get to 700px we create an 8 column grid with
+   * a left and right area to breakout of the grid.
+   */
+  @supports (display: grid) {
+    @media (min-width: 700px) {
+      .g-container {
+        display: grid;
+        grid-gap: .75em;
+        grid-template-columns:
+      [full-start]
+        minmax(calc(calc(100% - 1008px) / 2), 1fr)
+          [main-start]
+            repeat(var(--inner-grid-columns), [col-start] 1fr)
+          [main-end]
+        minmax(calc(calc(100% - 1008px) / 2), 1fr)
+      [full-end];
+        padding: 0;
+      }
+    }
+  }
+
+  /*
+   * when we get to 1100px we create an 14 column grid with
+   * a left and right area to breakout of the grid.
+   */
+  @supports (display: grid) {
+    @media (min-width: 1100px) {
+      .g-container {
+        --inner-grid-columns: 14;
+      }
+    }
+  }
+
+  .features {
+    grid-column: col-start 1 / span 6;
+    --features-grid-columns: 5;
+  }
+
+  @supports (display: grid) {
+    @media (min-width: 700px) {
+      .features {
+        display: grid;
+        grid-auto-rows: min-content;
+        grid-template-columns: repeat(var(--features-grid-columns), [col-start] 1fr);
+        height: 100vh;
+      }
+    }
+  }
+
+  @supports (display: grid) {
+    @media (min-width: 1100px) {
+      .features {
+        grid-column-end: 9;
+        --features-grid-columns: 7;
+      }
+    }
+  }
+
+
+  .features [class*="title"]  {
+    grid-column: col-start 2 / span 6;
+  }
+  .features [class*="subtitle"] {
+    grid-column: col-start 2 / span 5;
+  }
+  .features [class*="content"] {
+    grid-column: col-start 2 / span 4;
+  }
+  .features [class*="list"] {
+    grid-column: col-start 2 / span 4;
+  }
+  .features [class*="link"]  {
+    grid-column: col-start 5 / span 3;
+  }
+
+  .features:nth-of-type(even) [class*="title"]  {
+    grid-column-start: col-start 1;
+  }
+  .features:nth-of-type(even) [class*="subtitle"]  {
+    grid-column-start: col-start 1;
+  }
+  .features:nth-of-type(even) [class*="content"]  {
+    grid-column-start: col-start 3;
+  }
+  .features:nth-of-type(even) [class*="list"]  {
+    grid-column-start: col-start 3;
+  }
+  .features:nth-of-type(even) [class*="link"]  {
+    grid-column-start: col-start 1;
+  }
+
+  .features:nth-of-type(even) {
+    grid-column-start: 4;
+    grid-row: 2;
+  }
+
+  @supports (display: grid) {
+    @media (min-width: 1100px) {
+      .features:nth-of-type(even) {
+        grid-column-start: 9;
+        grid-column-end: 16;
+      }
+    }
+  }
+
+
+     html {
+       font-family: 'Fira Sans', sans-serif;
+     }
+
+  .g-container {
+    background-color: darkgrey;
+  }
+
+</style>
+<div class="g-container">
+  <article class="features">
+    <h3 class="features__title">Feature Title</h3>
+    <p class="features__subtitle">Feature Subtitle</p>
+    <div class="features__content">
+      <p class="features__paragraph">Here is some text about the feature</p>
+    </div>
+    <ul class="features__list">
+      <li>a feature item</li>
+      <li>a feature item</li>
+    </ul>
+    <a href="" class="features__link">call to action</a>
+  </article>
+  <article class="features">
+    <h3 class="features__title">Feature Title</h3>
+    <p class="features__subtitle">Feature Subtitle</p>
+    <div class="features__content">
+      <p class="features__paragraph">Here is some text about the feature</p>
+    </div>
+    <ul class="features__list">
+      <li>a feature item</li>
+      <li>a feature item</li>
+    </ul>
+    <a href="" class="features__link">call to action</a>
+  </article>
+</div>
+
+
